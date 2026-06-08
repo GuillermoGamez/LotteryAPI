@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LotteryAPI.Models;
 
-[Table("Permissions")]
+[Table("permissions")]
 public class Permission
 {
     [Key, Column("permissionid")]

@@ -1,10 +1,9 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace LotteryAPI.Models;
 
-[PrimaryKey(nameof(UserId), nameof(PermissionId))]
+[Table("user_permissions"), PrimaryKey(nameof(UserId), nameof(PermissionId))]
 public class UserPermission
 {
     [Column("userid")]

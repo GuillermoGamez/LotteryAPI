@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LotteryAPI.Models;
 
-[Table("Users")]
+[Table("users")]
 public class User
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("userid")]
@@ -20,8 +20,8 @@ public class User
     
     [Column("createdon")]
     public DateTime CreatedOn { get; set; } = DateTime.Now;
-    
-    [Column("lastlogin")]
+
+    [Column("lastlogin")] 
     public DateTime? LastLogin { get; set; } 
     
     [ForeignKey(nameof(StatusId))]

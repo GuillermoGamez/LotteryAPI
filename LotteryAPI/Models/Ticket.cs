@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LotteryAPI.Models;
 
-[Table("Tickets")]
+[Table("tickets")]
 public class Ticket
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("ticketid")]

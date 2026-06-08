@@ -1,4 +1,6 @@
 using LotteryAPI.Db;
+using LotteryAPI.Repository;
+using LotteryAPI.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -15,13 +17,18 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContextPool<LotteryContext>(options => 
     options.UseNpgsql(connectionString));
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.MapScalarApiReference();
+    app.MapScalarApiReference(options =>
+    {
+        options.DisableAgent();
+    });
 }
 
 app.UseHttpsRedirection();
