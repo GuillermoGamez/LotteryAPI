@@ -1,0 +1,16 @@
+using LotteryAPI.Db;
+using LotteryAPI.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace LotteryAPI.Controllers;
+
+[ApiController, Route("[controller]")]
+public class StatusController(LotteryContext context) : Controller
+{
+    [HttpGet, Route("GetAllStatuses")]
+    public async Task<ActionResult<List<Status>>> GetAllStatuses()
+    {
+        return await context.Statuses.ToListAsync();
+    }
+}
